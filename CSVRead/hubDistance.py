@@ -1,7 +1,7 @@
 import csv
 
 with open('hubDistance.csv') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
+    csv_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
     line_count = 0
     for row in csv_reader:
         if line_count == 0:
