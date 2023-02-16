@@ -1,8 +1,6 @@
 import Model.distance;
+import CSVRead.hubDistance
 
-miles = [1, 2, 3];
+CSVRead.hubDistance.createDisList()
 
-da = Model.distance.Distance("WGU", "5198 east side street", miles);
-
-print("hello world");
-print(da.miles);
+print(CSVRead.hubDistance.disList[1].address)
