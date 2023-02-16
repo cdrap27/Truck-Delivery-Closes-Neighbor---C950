@@ -1,13 +1,28 @@
 import csv
+import Model.distance
 
+disList = []
 with open('hubDistance.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
     line_count = 0
+    mi = []
     for row in csv_reader:
-        if line_count == 0:
-            print(f'Column names are {", ".join(row)}')
-            line_count += 1
-        else:
-            print(f'\t{row[0]} works in the {row[1]} department, and was born in {row[2]}.')
-            line_count += 1
-    print(f'Processed {line_count} lines.')
+        line_count = 0;
+        for item in row:
+            if(line_count == 0):
+                nn = item
+                line_count +=1
+            elif(line_count == 1):
+                aa = item
+                line_count += 1
+            elif(line_count > 1):
+
+                mi.append(item)
+                line_count += 1
+        print(mi)
+        dis = Model.distance.Distance(nn, aa, mi)
+        disList.append(dis)
+        #mi.clear()
+
+print(disList[10].miles[0])
+
