@@ -7,7 +7,7 @@ import hashMap.packageHash
 CSVRead.hubDistance.createDisList()
 pack = CSVRead.packages.setPackageList().copy()
 
-print(CSVRead.hubDistance.disList[1].name)
+print(CSVRead.hubDistance.disList[1].miles[0])
 print(CSVRead.packages.packageList[2].specialNotes)
 
 h = hashMap.packageHash.packageHash()
@@ -15,8 +15,14 @@ h = hashMap.packageHash.packageHash()
 for item in CSVRead.packages.packageList:
     h.add(item.pack, item)
 
-h.print()
+#h.print()
+i = None
 
-yo =h.get('3')
+#print(h.get('19').address)
 
-print(yo.specialNotes)
+for item in CSVRead.hubDistance.disList:
+    #print(h.get('13').address + "new one " +  item.address)
+    if h.get('13').address == item.address:
+        i = item
+
+print(i.name)

@@ -6,6 +6,7 @@ class packageHash:
     def _get_hash(self, key):
         hash = 0
         hash = int(key)
+        hash = hash % 10
         return hash
 
     def add(self, key, value):
