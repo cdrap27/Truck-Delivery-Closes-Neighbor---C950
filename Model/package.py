@@ -7,3 +7,9 @@ class Package():
         self.delivery = delivery
         self.mass = mass
         self.specialNotes = specialNotes
+        self.delivered = None
+        self.enroute = None
+        self.atHub = 800
+
+
+
