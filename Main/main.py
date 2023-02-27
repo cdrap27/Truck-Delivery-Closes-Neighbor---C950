@@ -26,6 +26,13 @@ for item in CSVRead.hubDistance.disList:
     if h.get('13').address == item.address:
         i = item
 
-truck1 = loadTrucks.trucks.load_truck1(h)
+truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run1)
+truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run1)
+print(len(truck1.packages))
+print(len(truck2.packages))
+truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run2)
+truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run2)
+print(len(truck1.packages))
+print(len(truck2.packages))
 
 print(CSVRead.hubDistance.disList[0].address)
