@@ -16,3 +16,4 @@ def load_truck(h, truck, run):
         truck.packages.append(h.get(item))
     return truck
 
+

@@ -2,6 +2,7 @@ import Model.distance;
 import CSVRead.hubDistance
 import CSVRead.packages
 import Model.package
+import deliveringAlgorithm.deliveries
 import hashMap.packageHash
 import loadTrucks.trucks
 
@@ -25,14 +26,15 @@ for item in CSVRead.hubDistance.disList:
     #print(h.get('13').address + "new one " +  item.address)
     if h.get('13').address == item.address:
         i = item
-
+test = '40'
+print(h.get(test).delivered)
 truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run1)
 truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run1)
-print(len(truck1.packages))
-print(len(truck2.packages))
+
 truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run2)
 truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run2)
-print(len(truck1.packages))
-print(len(truck2.packages))
+deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
+print(h.get('40').delivered)
+print(truck1.time)
 
-print(CSVRead.hubDistance.disList[0].address)
+#print(CSVRead.hubDistance.disList[0].address)
