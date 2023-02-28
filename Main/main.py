@@ -27,14 +27,19 @@ for item in CSVRead.hubDistance.disList:
     if h.get('13').address == item.address:
         i = item
 test = '40'
-print(h.get(test).delivered)
+#print(h.get(test).delivered)
 truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run1)
 truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run1)
-
+deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
+deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
 truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run2)
 truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run2)
 deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
-print(h.get('40').delivered)
+deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
+#deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
+print("delivered at: " + str(h.get('17').delivered))
 print(truck1.time)
+#print(truck2.time)
+#print(CSVRead.hubDistance.disList[2].address)
 
 #print(CSVRead.hubDistance.disList[0].address)
