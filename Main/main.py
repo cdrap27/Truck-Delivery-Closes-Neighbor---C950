@@ -32,6 +32,7 @@ truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.tr
 truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run1)
 deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
 deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
+print("truck 1 time initially is " + str(truck1.time))
 truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run2)
 truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run2)
 deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)

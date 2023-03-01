@@ -45,6 +45,8 @@ def closestNeighbor(truck, address, h):
         print(truck.time)
         print(time)
         truck.time = truck.time + time
+        if truck.time %100 > 60:
+            truck.time = (truck.time + 100) - 60
         print(truck.time)
         i = i + 1
         print(truck.packages[next_pack].pack)
