@@ -1,3 +1,4 @@
+import Interface.interface
 import Model.distance;
 import CSVRead.hubDistance
 import CSVRead.packages
@@ -42,9 +43,7 @@ deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
 #print(truck1.time)
 #print(truck2.time)
 #print(h.get('1').pack)
-for i in range(1, 41):
-    i = str(i)
-    print(h.get(i).pack + " delivered at " + str(h.get(i).delivered))
+Interface.interface.display(h)
 
 print(truck1.time)
 print(truck2.time)

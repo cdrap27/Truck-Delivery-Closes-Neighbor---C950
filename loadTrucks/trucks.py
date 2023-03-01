@@ -14,6 +14,7 @@ def load_truck(h, truck, run):
     truck.packages.clear()
     for item in run:
         truck.packages.append(h.get(item))
+        h.get(item).enroute = truck.time
     return truck
 
 
