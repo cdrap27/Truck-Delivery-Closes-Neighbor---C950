@@ -46,4 +46,5 @@ class packageHash:
         print('---Packages----')
         for item in self.map:
             if item is not None:
-                print(str(item))
+                temp = item
+                print(temp.pack)
