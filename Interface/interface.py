@@ -1,5 +1,3 @@
-
-
 def display(h, truck1, truck2):
     for i in range(1, 41):
         i = str(i)
@@ -33,15 +31,26 @@ def display(h, truck1, truck2):
 
     print("Total miles traveled: " + str(miles))
 
+
+
 def report():
     print("Enter a number to select from the following operations:\n")
     print("1. Display All")
-    print("2. ")
-    print("4. Exit")
-
+    print("2. Show Package Status at Selected Time")
+    print("3. Show Specific Package Detailed Information")
+    print("4. Show Specific Truck Detailed Information")
+    print("5. Exit")
     option = input('Enter a number: ')
     return option
 
-
-
-
+def package_time(hour, minute, h):
+        print("Package Status as of " + str(hour) + ":" + str(minute).zfill(2))
+        time = hour * 100 + minute
+        for i in range(1, 41):
+            print("Package " + str(h.get(str(i)).pack) + " is: ", end=' ')
+            if h.get(str(i)).delivered == time or h.get(str(i)).delivered < time:
+                print("delivered.")
+            elif h.get(str(i)).enroute == time or h.get(str(i)).enroute < time:
+                print("enroute.")
+            else:
+                print("still at the hub.")
