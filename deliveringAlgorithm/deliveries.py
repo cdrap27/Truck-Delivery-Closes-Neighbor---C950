@@ -42,7 +42,7 @@ def closestNeighbor(truck, address, h):
         i = i + 1
         address = truck.packages[next_pack].address
         del truck.packages[next_pack]
-    print("total distance is: " + str(total_distance))
+    #print("total distance is: " + str(total_distance))
     for item in CSVRead.hubDistance.disList:
         if address == item.address:
             distance = item.miles[0]

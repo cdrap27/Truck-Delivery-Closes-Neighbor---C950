@@ -1,3 +1,6 @@
+import loadTrucks.trucks
+
+
 def display(h, truck1, truck2):
     for i in range(1, 41):
         i = str(i)
@@ -54,3 +57,34 @@ def package_time(hour, minute, h):
                 print("enroute.")
             else:
                 print("still at the hub.")
+
+def get_package(id, h):
+    id = str(id)
+    time = h.get(id).atHub
+    hour = int(time / 100)
+    minute = int(time % 100)
+    print("Package " + id + " at hub: " + str(hour) + ":" + str(minute).zfill(2))
+    time = h.get(id).enroute
+    hour = int(time / 100)
+    minute = int(time % 100)
+    print("Package " + id + " enroute: " + str(hour) + ":" + str(minute).zfill(2))
+    time = h.get(id).delivered
+    hour = int(time / 100)
+    minute = int(time % 100)
+    print("Package " + id + " delivered: " + str(hour) + ":" + str(minute).zfill(2))
+    print("Delivery deadline: " + h.get(id).delivery)
+    print("Delivery address: " + h.get(id).address + ", " + h.get(id).city + ", UT " + str(h.get(id).zip))
+    print("Package weight: " + str(h.get(id).mass) + " Kilos")
+    print("Special notes: " + h.get(id).specialNotes)
+
+def get_truck(truck, id):
+    num1 = len(loadTrucks.trucks.t1run1)
+    num2 = len(loadTrucks.trucks.t1run2)
+    print("Truck " + str(id) + " delivered " + str(num1 + num2) + " packages total.")
+    print("Truck " + str(id) + " made 2 runs.")
+    print("The first run delivered the following packages: \n" + "Package:", end=" ")
+    for i, item in enumerate(loadTrucks.trucks.t1run1):
+        if i == len(loadTrucks.trucks.t1run1) -1:
+            print(str(item))
+        else:
+            print(str(item) + ",", end=' ')
