@@ -96,7 +96,8 @@ def get_option(option):
             truck = 1
             Interface.interface.get_truck(truck1, truck)
         elif truck == '2' or truck.lower() == 'truck 2':
-            print("That's the second one")
+            truck = 2
+            Interface.interface.get_truck(truck2, truck)
         else:
             print("Error: Invalid Input")
             del truck
