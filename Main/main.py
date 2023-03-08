@@ -47,16 +47,13 @@ def get_option(option):
             minute = int(time[1])
             if int(minute) > 59 or int(minute) < 0:
                 print("Invalid Minutes Input, minutes must be between 0 and 59.")
-                input("Press enter to continue")
+
                 del time_input
-                option = Interface.interface.report()
-                get_option(option)
+
             elif int(hour) > 23 or int(hour) < 0:
                 print("Invalid Hour Input, hour must be between 0 and 23")
-                input("Press enter to continue")
                 del time_input
-                option = Interface.interface.report()
-                get_option(option)
+
             else:
                 Interface.interface.package_time(hour, minute, h)
         except:
@@ -74,21 +71,18 @@ def get_option(option):
         try:
             if 0 < int(package_select) < 41:
                 Interface.interface.get_package(package_select, h)
-                input("Press enter to continue")
-                option = Interface.interface.report()
-                get_option(option)
             else:
                 print("Invalid package")
-                input("Press enter to continue")
                 del package_select
-                option = Interface.interface.report()
-                get_option(option)
         except:
             print("Error: Invalid Input")
             input("Press enter to continue")
             del package_select
             option = Interface.interface.report()
             get_option(option)
+        input("Press enter to continue")
+        option = Interface.interface.report()
+        get_option(option)
     elif option == '4':
         print("Select truck 1 or 2")
         truck = input()
