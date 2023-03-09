@@ -1,4 +1,7 @@
 class Truck:
+    """
+    truck class
+    """
     def __init__(self, packages):
         self.packages = packages
         self.distance = 0

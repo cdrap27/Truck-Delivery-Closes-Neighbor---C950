@@ -1,4 +1,7 @@
 class Package():
+    """
+    package class
+    """
     def __init__(self, pack, address, city, zip, delivery, mass, specialNotes):
         self.pack = pack
         self.address = address
