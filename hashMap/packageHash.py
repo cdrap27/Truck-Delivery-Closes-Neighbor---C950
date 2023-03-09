@@ -1,17 +1,20 @@
 """
 A hash map is created.
+Citation: Joe James. (2016, January 22). Python: Creating a HASHMAP using Lists.[Video]. YouTube.
+	            https://www.youtube.com/watch?v=9HFbhPscPU0
 """
 class packageHash:
     def __init__(self):
         """
         The hash map is initialized using buckets.  By default, 64 are created.
+        O(1)
         """
         self.size = 64
         self.map = [None] * self.size
     def _get_hash(self, key):
         """
         The hash key is created.  Since each package has a unique id, the hash is created using the package id % 10.
-        This is a very basic hash function, but it is all that is needed for 40 packages.
+        This is a very basic hash function, but it is all that is needed for 40 packages. O(1)
         :param key: A package id is used as the key
         :return: the function returns a 'hash' as the unique identifier.
         """
@@ -24,6 +27,7 @@ class packageHash:
         """
         The function adds a function to the hashmap.  The function calls the _get_hash function to get the hash key
         and uses this to store the value.
+        O(n)
         :param key: Key is the unique identifier
         :param value: value is what is being added to the hash
         :return: returns true
