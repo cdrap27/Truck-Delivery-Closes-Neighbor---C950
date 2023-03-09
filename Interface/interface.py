@@ -2,6 +2,16 @@ import loadTrucks.trucks
 
 
 def display(h, truck1, truck2):
+    """
+    Display function prints a list of every package along with the enroute and delivered time.  The results are
+    displayed using a for loop.  Since there are 40 packages, the for loop runs a constant 40 times. O(1)
+    The truck information is then displayed.  Finally, the time at which both trucks are back at the hub as well as the
+    total mileage is displayed.
+    :param h: hash map of packages
+    :param truck1: truck 1
+    :param truck2: truck 2
+    :return: return
+    """
     for i in range(1, 41):
         i = str(i)
         hours = int(h.get(i).delivered / 100)
@@ -40,6 +50,10 @@ def display(h, truck1, truck2):
 
 
 def report():
+    """
+    This displays an interface of options to choose from and takes an option.
+    :return: User's option is returned.
+    """
     print("Enter a number to select from the following operations:\n")
     print("1. Display All")
     print("2. Show Package Status at Selected Time")
@@ -50,18 +64,32 @@ def report():
     return option
 
 def package_time(hour, minute, h):
-        print("Package Status as of " + str(hour) + ":" + str(minute).zfill(2))
-        time = hour * 100 + minute
-        for i in range(1, 41):
-            print("Package " + str(h.get(str(i)).pack) + " is: ", end=' ')
-            if h.get(str(i)).delivered == time or h.get(str(i)).delivered < time:
-                print("delivered.")
-            elif h.get(str(i)).enroute == time or h.get(str(i)).enroute < time:
-                print("enroute.")
-            else:
-                print("still at the hub.")
+    """
+    Shows the status of all packages at a certain time.  Uses a for loop of a constant time since the number of packages
+    is known. O(1)
+    :param hour: User's hour input
+    :param minute: User's minute input
+    :param h: hashmap of packages
+    :return: return
+    """
+    print("Package Status as of " + str(hour) + ":" + str(minute).zfill(2))
+    time = hour * 100 + minute
+    for i in range(1, 41):
+        print("Package " + str(h.get(str(i)).pack) + " is: ", end=' ')
+        if h.get(str(i)).delivered == time or h.get(str(i)).delivered < time:
+            print("delivered.")
+        elif h.get(str(i)).enroute == time or h.get(str(i)).enroute < time:
+            print("enroute.")
+        else:
+            print("still at the hub.")
 
 def get_package(id, h):
+    """
+    takes an id and returns all the package details for given id.
+    :param id: package id
+    :param h: hash map of packages
+    :return: return
+    """
     id = str(id)
     time = h.get(id).atHub
     hour = int(time / 100)
@@ -81,6 +109,12 @@ def get_package(id, h):
     print("Special notes: " + h.get(id).specialNotes)
 
 def get_truck(truck, id):
+    """
+    Returns all truck information for given truck id.  Uses a for loop to display packages delivered. O(n)
+    :param truck: truck for returning information
+    :param id: id of truck
+    :return: return
+    """
     if id == 1:
         num1 = len(loadTrucks.trucks.t1run1)
         num2 = len(loadTrucks.trucks.t1run2)
