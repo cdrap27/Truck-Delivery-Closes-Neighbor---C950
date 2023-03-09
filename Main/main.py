@@ -1,3 +1,4 @@
+#Chad Draper
 import Interface.interface
 import Model.distance;
 import CSVRead.hubDistance
@@ -7,30 +8,25 @@ import deliveringAlgorithm.deliveries
 import hashMap.packageHash
 import loadTrucks.trucks
 
-CSVRead.hubDistance.createDisList()
-pack = CSVRead.packages.setPackageList().copy()
-
-h = hashMap.packageHash.packageHash()
-
-for item in CSVRead.packages.packageList:
-    h.add(item.pack, item)
-
-x = 0
-
-truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run1)
-truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run1)
-deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
-deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
-truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run2)
-truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run2)
-deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
-deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
-Interface.interface.display(h, truck1, truck2)
-input("Press enter to continue")
-option = Interface.interface.report()
-
-
+"""
+A function is created to get a user's input from the interface and perform an action.
+"""
 def get_option(option):
+    """
+    if a user presses 1, the final report is displayed.
+    if a user inputs 2, the program asks for a time.  The function then checks if the time is valid.  If the
+    time is not valid, an error message is displayed based on the issue.  IF the time is correct, an interface
+    function is called to return package information.
+    If a user input 3, the program asks for a package.  The function then checks if the package is valid.  If the
+    package is not valid, an error message is displayed based on the issue.  IF the package is correct, an interface
+    function is called to return package information.
+    If a user inputs 4, the program asks for a truck.  the function then checks if the turck is valid.  If the truck
+    is not valid, an error message is displayed based on the issue. IF the truck is correct, an interface
+    function is called to return truck information.
+    If a user inputs 5, the program closes.
+    :param option: the fucntino takes an 'option' which is the user's input based on the interface.
+    :return: return
+    """
     if option == '1':
         Interface.interface.display(h, truck1, truck2)
         input("Press enter to continue")
@@ -107,5 +103,57 @@ def get_option(option):
         get_option(option)
 
 
+"""
+createDisList creates a list of addresses and distances using the provided Distance Table
+converted to a CSV file and modified for easier readability
+"""
+CSVRead.hubDistance.createDisList()
+"""
+pack is used to create a duplicate list of all packages
+"""
+pack = CSVRead.packages.setPackageList().copy()
+"""
+a hashmap is created using the custom hash map
+"""
+h = hashMap.packageHash.packageHash()
+"""
+the package list is passed through the for loop and each package is added to the created hashmap
+Time complexity is O(n)
+"""
+for item in CSVRead.packages.packageList:
+    h.add(item.pack, item)
+
+"""
+truck 1 and truck 2 are created using the hashmap, truck, and a list of packages.
+"""
+truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run1)
+truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run1)
+"""
+The packages are delivered on the trucks using a nearest neighbor algorithm. 
+"""
+deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
+deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
+"""After the initial run, the trucks are recreated using a second list of packages for the trucks second run
+"""
+truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run2)
+truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run2)
+"""
+The packages are delivered for the second run.
+"""
+deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
+deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
+"""
+A function is called to display all packages and truck mileage for a final report."""
+Interface.interface.display(h, truck1, truck2)
+"""The program pauses until the user presses enter for easier readability
+"""
+input("Press enter to continue")
+"""
+After the user presses enter, a function is called to display interface options.
+"""
+option = Interface.interface.report()
+"""
+The get_option function is called with the user's input as a parameter.
+"""
 get_option(option)
 
