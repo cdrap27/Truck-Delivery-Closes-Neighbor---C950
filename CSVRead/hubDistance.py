@@ -1,10 +1,21 @@
 import csv
 import Model.distance
-
+"""
+A variable is created as a list.
+"""
 disList = []
 
-
+"""
+A function is created that creates a list of distances
+"""
 def createDisList():
+    """
+    The function opens the list of distances as a CSV file and separates each value with a comma.
+    The function then separates each line and row using 2 for loops.  Each line is stored using the distance class.
+    The distance is then added the the disList.
+    The function has nested for loops and has a time complexity of O(n^2)
+    :return: A list of distances is returned.
+    """
     with open('hubDistance.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
         line_count = 0
