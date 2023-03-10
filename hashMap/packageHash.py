@@ -25,6 +25,7 @@ class packageHash:
 
     def add(self, key, value):
         """
+        This is my insertion function into the hash map.
         The function adds a function to the hashmap.  The function calls the _get_hash function to get the hash key
         and uses this to store the value.
         O(n)
