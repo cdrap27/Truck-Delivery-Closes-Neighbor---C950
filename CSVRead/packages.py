@@ -13,6 +13,7 @@ def setPackageList():
     The function then separates each line and row using 2 for loops.  Each line is stored using the package class.
     The package is then added the the packageList.
     The function has nested for loops and has a time complexity of O(n^2)
+    Space complexity O(n^2)
     :return: returns a list of packages.
     """
     with open('packages.csv') as csv_file:

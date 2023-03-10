@@ -28,7 +28,8 @@ class packageHash:
         This is my insertion function into the hash map.
         The function adds a function to the hashmap.  The function calls the _get_hash function to get the hash key
         and uses this to store the value.
-        O(n)
+        Time complexity O(n)
+        Space complexity O(n)
         :param key: Key is the unique identifier
         :param value: value is what is being added to the hash
         :return: returns true
@@ -51,6 +52,8 @@ class packageHash:
         """
         The function uses a key and the _get_hash function to find and return a value from the hash map.  If no value
         is found, nothing is returned.
+        Space complexity O(n)
+        Time complexity O(n)
         :param key: Key is the unique identifer
         :return: returns value or none
         """
@@ -65,6 +68,8 @@ class packageHash:
         """
         The function uses a key and the _get_hash function to find and delete a value from the hash map.  If no value
         is found, false is returned.
+        Space complexity O(n)
+        Time complexity O(n)
         :param key: Key is the unique identifier
         :return: true or false
         """

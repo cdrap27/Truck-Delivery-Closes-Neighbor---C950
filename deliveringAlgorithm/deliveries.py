@@ -22,6 +22,7 @@ def closestNeighbor(truck, address, h):
     until no packages remain. After all packages have been delivered, The distance to the hub is calculated and added
     to the truck using a for loop before exiting the function. O(n)
     Total time complexity O(n^3)
+    Space complexity O(n^3)
     :param truck: a truck is passed in which has a list of packages to be delivered.
     :param address: an address is passed in as the current address where the truck is located.
     :param h: h is passed in as a hash map of packages.

@@ -1,5 +1,6 @@
 #Chad Draper 007131218
 #Time Complexity O(n^3)
+#Space Complexity O(n^3)
 import Interface.interface
 import Model.distance;
 import CSVRead.hubDistance
@@ -25,7 +26,7 @@ def get_option(option):
     is not valid, an error message is displayed based on the issue. IF the truck is correct, an interface
     function is called to return truck information.
     If a user inputs 5, the program closes.
-    O(1)
+    Time complexity O(1) Space complexity O(1)
     :param option: the fucntino takes an 'option' which is the user's input based on the interface.
     :return: return
     """
@@ -108,53 +109,53 @@ def get_option(option):
 """
 createDisList creates a list of addresses and distances using the provided Distance Table
 converted to a CSV file and modified for easier readability
-O(n^2)
+Time complexity O(n^2) Space complexity O(n^2)
 """
 CSVRead.hubDistance.createDisList()
 """
 pack is used to create a duplicate list of all packages
-O(n^2)
+Time complexity O(n^2) Space complexity O(n^2)
 """
 pack = CSVRead.packages.setPackageList().copy()
 """
 a hashmap is created using the custom hash map
-O(1)
+Time complexity O(1) Space complexity O(1)
 """
 h = hashMap.packageHash.packageHash()
 """
 the package list is passed through the for loop and each package is added to the created hashmap
-Time complexity is O(n^2)
+Time complexity is O(n^2) Space complexity O(n^2)
 """
 for item in CSVRead.packages.packageList:
     h.add(item.pack, item)
 
 """
 truck 1 and truck 2 are created using the hashmap, truck, and a list of packages.
-Both have time complexity of O(n)
+Both have time complexity of O(n) space complexity O(n)
 """
 truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run1)
 truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run1)
 """
 The packages are delivered on the trucks using a nearest neighbor algorithm. 
-Both have time complexity of O(n^3)
+Both have time complexity of O(n^3) space complexity O(n^3)
 """
 deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
 deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
 """
 After the initial run, the trucks are recreated using a second list of packages for the trucks second run
-O(n)
+time complexity O(n) space complexity O(n)
 """
 truck1 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck1, loadTrucks.trucks.t1run2)
 truck2 = loadTrucks.trucks.load_truck(h, loadTrucks.trucks.truck2, loadTrucks.trucks.t2run2)
 """
 The packages are delivered for the second run.
-O(n^3)
+time complexity O(n^3) space complexity O(n^3)
 """
 deliveringAlgorithm.deliveries.closestNeighbor(truck1, 'HUB', h)
 deliveringAlgorithm.deliveries.closestNeighbor(truck2, 'HUB', h)
 """
 A function is called to display all packages and truck mileage for a final report.
-O(1)
+time complexity O(1) space complexity O(1)
 """
 Interface.interface.display(h, truck1, truck2)
 """
@@ -163,12 +164,12 @@ The program pauses until the user presses enter for easier readability
 input("Press enter to continue")
 """
 After the user presses enter, a function is called to display interface options.
-O(1)
+time complexity O(1) space complexity O(1)
 """
 option = Interface.interface.report()
 """
 The get_option function is called with the user's input as a parameter.
-O(1)
+time complexity O(1) space complexity O(1)
 """
 get_option(option)
 

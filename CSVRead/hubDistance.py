@@ -14,6 +14,7 @@ def createDisList():
     The function then separates each line and row using 2 for loops.  Each line is stored using the distance class.
     The distance is then added the the disList.
     The function has nested for loops and has a time complexity of O(n^2)
+    Space complexity O(n^2)
     :return: A list of distances is returned.
     """
     with open('hubDistance.csv') as csv_file:
