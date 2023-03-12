@@ -1,4 +1,4 @@
-import CSVRead.hubDistance
+import C950.CSVRead.hubDistance
 
 """
 closestNeighbor function calculates which package to deliver next and delivers each package.
@@ -32,7 +32,7 @@ def closestNeighbor(truck, address, h):
     j = 0
     total_distance = 0
     while len(truck.packages) > 0:
-        for address_index, name in enumerate(CSVRead.hubDistance.disList):
+        for address_index, name in enumerate(C950.CSVRead.hubDistance.disList):
             if name.address == address:
                 j = address_index
 
@@ -42,15 +42,15 @@ def closestNeighbor(truck, address, h):
             break
         for pack, item in enumerate(truck.packages):
 
-            for index, add in enumerate(CSVRead.hubDistance.disList):
+            for index, add in enumerate(C950.CSVRead.hubDistance.disList):
                 if item.address == add.address:
                     try:
-                        if float(CSVRead.hubDistance.disList[index].miles[j]) < distance:
-                            distance = float(CSVRead.hubDistance.disList[index].miles[j])
+                        if float(C950.CSVRead.hubDistance.disList[index].miles[j]) < distance:
+                            distance = float(C950.CSVRead.hubDistance.disList[index].miles[j])
                             next_pack = pack
                     except:
-                        if float(CSVRead.hubDistance.disList[j].miles[index]) < distance:
-                            distance = float(CSVRead.hubDistance.disList[j].miles[index])
+                        if float(C950.CSVRead.hubDistance.disList[j].miles[index]) < distance:
+                            distance = float(C950.CSVRead.hubDistance.disList[j].miles[index])
                             next_pack = pack
 
         total_distance = total_distance + distance
@@ -69,7 +69,7 @@ def closestNeighbor(truck, address, h):
         address = truck.packages[next_pack].address
         del truck.packages[next_pack]
     #print("total distance is: " + str(total_distance))
-    for item in CSVRead.hubDistance.disList:
+    for item in C950.CSVRead.hubDistance.disList:
         if address == item.address:
             distance = item.miles[0]
     hour = (float(distance) / 18)

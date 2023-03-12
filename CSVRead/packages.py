@@ -1,5 +1,5 @@
 import csv
-import Model.package
+import C950.Model.package
 """
 A variable is created as a list.
 """
@@ -43,6 +43,6 @@ def setPackageList():
                     itemCount += 1
                 elif(itemCount == 7):
                     special = item
-            package = Model.package.Package(pack, address, city, zipp, delivery, mass, special)
+            package = C950.Model.package.Package(pack, address, city, zipp, delivery, mass, special)
             packageList.append(package)
     return packageList

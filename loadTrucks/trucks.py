@@ -1,4 +1,4 @@
-import Model.truck
+import C950.Model.truck
 """
 creates 2 variables of type list
 """
@@ -7,8 +7,8 @@ pack2 = []
 """
 creates 2 trucks
 """
-truck1 = Model.truck.Truck(pack1)
-truck2 = Model.truck.Truck(pack2)
+truck1 = C950.Model.truck.Truck(pack1)
+truck2 = C950.Model.truck.Truck(pack2)
 """
 list of packages for each run, manually loaded
 """

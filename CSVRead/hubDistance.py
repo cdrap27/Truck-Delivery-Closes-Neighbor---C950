@@ -1,5 +1,5 @@
 import csv
-import Model.distance
+import C950.Model.distance
 """
 A variable is created as a list.
 """
@@ -35,7 +35,7 @@ def createDisList():
                     mi.append(item)
                     line_count += 1
             # print(mi)
-            dis = Model.distance.Distance(nn, aa, mi.copy())
+            dis = C950.Model.distance.Distance(nn, aa, mi.copy())
             disList.append(dis)
 
             mi.clear()

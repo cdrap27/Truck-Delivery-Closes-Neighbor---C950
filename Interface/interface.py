@@ -1,4 +1,4 @@
-import loadTrucks.trucks
+import C950.loadTrucks.trucks
 
 
 def display(h, truck1, truck2):
@@ -116,11 +116,11 @@ def get_truck(truck, id):
     :return: return
     """
     if id == 1:
-        num1 = len(loadTrucks.trucks.t1run1)
-        num2 = len(loadTrucks.trucks.t1run2)
+        num1 = len(C950.loadTrucks.trucks.t1run1)
+        num2 = len(C950.loadTrucks.trucks.t1run2)
     if id == 2:
-        num1 = len(loadTrucks.trucks.t2run1)
-        num2 = len(loadTrucks.trucks.t2run2)
+        num1 = len(C950.loadTrucks.trucks.t2run1)
+        num2 = len(C950.loadTrucks.trucks.t2run2)
     hour = int(truck.time / 100)
     minute = int(truck.time % 100)
     distance = (float(minute / 60) + float(hour - 8)) * 18
@@ -134,27 +134,27 @@ def get_truck(truck, id):
     print("The first run delivered the following packages: \n" + "Package:", end=" ")
 
     if id == 1:
-        for i, item in enumerate(loadTrucks.trucks.t1run1):
-            if i == len(loadTrucks.trucks.t1run1) -1:
+        for i, item in enumerate(C950.loadTrucks.trucks.t1run1):
+            if i == len(C950.loadTrucks.trucks.t1run1) -1:
                 print(str(item))
             else:
                 print(str(item) + ",", end=' ')
         print("The second run delivered the following packages: \n" + "Package:", end=" ")
-        for i, item in enumerate(loadTrucks.trucks.t1run2):
-            if i == len(loadTrucks.trucks.t1run2) - 1:
+        for i, item in enumerate(C950.loadTrucks.trucks.t1run2):
+            if i == len(C950.loadTrucks.trucks.t1run2) - 1:
                 print(str(item))
             else:
                 print(str(item) + ",", end=' ')
 
     if id == 2:
-        for i, item in enumerate(loadTrucks.trucks.t2run1):
-            if i == len(loadTrucks.trucks.t2run1) -1:
+        for i, item in enumerate(C950.loadTrucks.trucks.t2run1):
+            if i == len(C950.loadTrucks.trucks.t2run1) -1:
                 print(str(item))
             else:
                 print(str(item) + ",", end=' ')
         print("The second run delivered the following packages: \n" + "Package:", end=" ")
-        for i, item in enumerate(loadTrucks.trucks.t2run2):
-            if i == len(loadTrucks.trucks.t2run2) - 1:
+        for i, item in enumerate(C950.loadTrucks.trucks.t2run2):
+            if i == len(C950.loadTrucks.trucks.t2run2) - 1:
                 print(str(item))
             else:
                 print(str(item) + ",", end=' ')
