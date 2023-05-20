@@ -15,6 +15,7 @@ Version control/GitHub.
 Time complexity for algorithms.
 Using code to automate functions.
 Using hash maps. 
+Reading/writing CSV files using Python. 
 
 My program has a time complexity of O(n^3) space complexity of O(n^3)
 
